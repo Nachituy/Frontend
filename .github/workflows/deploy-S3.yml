@@ -2,8 +2,7 @@ name: Deploy to S3
 
 on:
   push:
-    branches:
-            -Test
+    branches: [ "Test" ]
 
 jobs:
   deploy:
