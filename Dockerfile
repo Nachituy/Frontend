@@ -18,4 +18,4 @@ RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod u+x entrypoint.sh 
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/bin/bash","/entrypoint.sh"]
