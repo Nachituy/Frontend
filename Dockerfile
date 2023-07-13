@@ -1,19 +1,19 @@
-FROM node:alpine AS development
+FROM python:3.8-alpine
 
-# Declaring env
-ENV NODE_ENV development
-# Setting up the work directory
-WORKDIR /react-app
+LABEL "com.github.actions.name"="S3 Sync"
+LABEL "com.github.actions.description"="Sync a directory to an AWS S3 repository"
+LABEL "com.github.actions.icon"="refresh-cw"
+LABEL "com.github.actions.color"="green"
 
-# Installing dependencies
-COPY . .
-#COPY ./package.json /react-app
-RUN yarn install
+LABEL version="0.5.1"
+LABEL repository="https://github.com/jakejarvis/s3-sync-action"
+LABEL homepage="https://jarv.is/"
+LABEL maintainer="Jake Jarvis <jake@jarv.is>"
 
-#npm install 
+# https://github.com/aws/aws-cli/blob/master/CHANGELOG.rst
+ENV AWSCLI_VERSION='1.18.14'
 
-# Copying all the files in our project
+RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
 
-EXPOSE 9000
-# Starting our application
-CMD yarn start
+ADD entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
