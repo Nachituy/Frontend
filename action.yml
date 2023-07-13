@@ -1,0 +1,6 @@
+name: "S3 Sync"
+description: "Sync a directory to an AWS S3 repository"
+
+runs:
+  using: docker
+  image: Dockerfile
