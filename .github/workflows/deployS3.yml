@@ -9,8 +9,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: ./action@Desarrollo
+    - name: sync
+    - uses: actions/checkout@v3
+    - uses: ./
     
       with:
         args: --acl public-read --follow-symlinks --delete
