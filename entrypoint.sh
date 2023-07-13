@@ -17,6 +17,12 @@ if [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
   exit 1
 fi
 
+if [ -z "$AWS_SESSION_TOKEN" ]; then
+  echo "AWS_SESSION_TOKEN is not set. Quitting."
+  exit 1
+fi
+
+
 # Default to us-east-1 if AWS_REGION not set.
 if [ -z "$AWS_REGION" ]; then
   AWS_REGION="us-east-1"
