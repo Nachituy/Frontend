@@ -19,4 +19,4 @@ jobs:
         aws-session-token: ${{ secrets.AWS_SESSION_TOKEN}}
         
         AWS_REGION: 'us-east-1'   # optional: defaults to us-east-1
-        SOURCE_DIR: 'public'      # optional: defaults to entire repository
+        SOURCE_DIR: 'src'      # optional: defaults to entire repository
