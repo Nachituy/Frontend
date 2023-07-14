@@ -17,6 +17,7 @@ if [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
   exit 1
 fi
 
+
 if [ -z "$AWS_SESSION_TOKEN" ]; then
   echo "AWS_SESSION_TOKEN is not set. Quitting."
   exit 1
@@ -46,11 +47,10 @@ ${AWS_REGION}
 text
 EOF
 
-echo "aws_session_token=${AWS_SESSION_TOKEN}" >> ~/.aws/credentials
 
 # Sync using our dedicated profile and suppress verbose messages.
 # All other flags are optional via the `args:` directive.
-sh -c "aws s3 sync ${SOURCE_DIR:-.} s3://frontend-obligatorio-2023/ \
+sh -c "aws s3 sync ${SOURCE_DIR:-.} s3://${AWS_S3_BUCKET}/${DEST_DIR} \
               --profile s3-sync-action \
               --no-progress \
               ${ENDPOINT_APPEND} $*"

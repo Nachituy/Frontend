@@ -1,9 +1,4 @@
-FROM node:alpine AS development
-
-# Declaring env
-ENV NODE_ENV development
-# Setting up the work directory
-WORKDIR /react-app
+FROM node:alpine
 
 # Installing dependencies
 COPY . .
