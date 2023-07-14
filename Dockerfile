@@ -10,5 +10,6 @@ COPY . .
 ENV AWSCLI_VERSION='1.29.2'
 RUN yarn add -D webpack-cli && yarn build && \
 apk add py3-pip &&  pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
+ADD entrypoint.sh .
 RUN chmod ugo+x entrypoint.sh
 ENTRYPOINT ["/bin/sh","entrypoint.sh"]
