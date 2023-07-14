@@ -1,7 +1,7 @@
-FROM node:alpine AS build
+FROM node:alpine AS development
 
 # Declaring env
-ENV NODE_ENV production
+ENV NODE_ENV development
 # Setting up the work directory
 WORKDIR /react-app
 
