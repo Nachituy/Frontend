@@ -1,3 +1,5 @@
 *.md
   action.yml
+Dockerfile
+LICENSE
   
