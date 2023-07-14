@@ -1,4 +1,5 @@
-FROM node:alpine AS build
+#FROM node:alpine AS build
+FROM ubuntu:latest
 
 # Declaring env
 ENV NODE_ENV development
@@ -13,9 +14,10 @@ RUN npm install
 RUN npm run build
 
 
-FROM python:3.8-alpine
+
 
 ENV AWSCLI_VERSION='1.29.2'
+RUN apt install python3-pip
 
 RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
 COPY --from=build ./build build
