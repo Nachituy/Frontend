@@ -9,7 +9,7 @@ WORKDIR /react-app
 COPY src src
 
 COPY ./package.json webpack.config.js pnpm-lock.yaml ./
-RUN apk add --update npm && RUN npm install && npm run build
+RUN apk add --update npm && npm install && npm run build
 
 ENV AWSCLI_VERSION='1.29.2'
 RUN apk add py3-pip &&  pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
