@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "webpack serve --port 9000 --env isLocal",
+    "start": "webpack serve --port 80 --env isLocal",
     "lint": "eslint src",
     "test": "jest --passWithNoTests",
     "format": "prettier --write .",
