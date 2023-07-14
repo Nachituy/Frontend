@@ -7,7 +7,7 @@ WORKDIR /react-app
 
 # Installing dependencies
 COPY . .
-@@ -14,4 +9,4 @@ ENV AWSCLI_VERSION='1.29.2'
+ENV AWSCLI_VERSION='1.29.2'
 RUN yarn add -D webpack-cli && yarn build && \
 apk add py3-pip &&  pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
 RUN chmod ugo+x entrypoint.sh
