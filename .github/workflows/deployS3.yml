@@ -16,7 +16,7 @@ jobs:
     - name: sync  
       uses: ./
     
-      with:
+      #with:
         #args: --acl public-read --follow-symlinks --delete
         
       env:
