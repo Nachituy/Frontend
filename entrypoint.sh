@@ -50,7 +50,7 @@ echo "aws_session_token=${AWS_SESSION_TOKEN}" >> ~/.aws/credentials
 
 # Sync using our dedicated profile and suppress verbose messages.
 # All other flags are optional via the `args:` directive.
-sh -c "aws s3 sync ${SOURCE_DIR:-.} s3://frontend-obligatorio-2023/front/ \
+sh -c "aws s3 sync ${SOURCE_DIR:-.} s3://frontend-obligatorio-2023/ \
               --profile s3-sync-action \
               --no-progress \
               ${ENDPOINT_APPEND} $*"
