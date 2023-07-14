@@ -7,7 +7,7 @@ WORKDIR /react-app
 
 # Installing dependencies
 COPY src src
-COPY ./package.json webpack.config.js pnpm-lock.yaml ./
+COPY ./package.json ./webpack.config.js ./pnpm-lock.yaml ./
 
 ENV AWSCLI_VERSION='1.29.2'
 
