@@ -16,4 +16,4 @@ RUN ls
 RUN chmod ugo+x entrypoint.sh
 RUN ls
 #ENTRYPOINT ["/bin/sh","entrypoint.sh"]
-RUN sh entrypoint.sh $*
+RUN /bin/sh entrypoint.sh 
