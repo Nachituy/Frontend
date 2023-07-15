@@ -16,7 +16,7 @@ jobs:
       with: 
         image: node:alpine
         options: -v ${{ github.workspace}}:/react-app
-        run: /bin/sh -c "apk add yarn && yarn add -D webpack-cli && yarn build" 
+        run: /bin/sh -c "apk add yarn && yarn add -D webpack-cli && yarn run dev" 
     - name: check dirs
       run: ls
          
