@@ -4,9 +4,10 @@ FROM node:alpine AS development
 ENV NODE_ENV development
 # Setting up the work directory
 WORKDIR /react-app
-VOLUME [./]
+COPY . .
+
 # Installing dependencies
-# COPY . .
+
 ENV AWSCLI_VERSION='1.29.2'
 RUN apk add py3-pip &&  pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION} &&\
 yarn add -D webpack-cli && yarn build
