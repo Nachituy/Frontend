@@ -20,7 +20,7 @@ jobs:
         run: cd /react-app && apk add yarn && yarn add -D webpack-cli && yarn build
         #run: npm run build
     - name: copy build
-      run: cp 'dist' '${GITHUB_WORKSPACE}/dist'
+      run: cp -r 'dist' '${GITHUB_WORKSPACE}/dist'
       shell: sh
     #- name: Get yarn cache directory path
     #  id: yarn-cache-dir-path
