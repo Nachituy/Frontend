@@ -38,22 +38,24 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps: 
-    
-    - uses: actions/cache@v3
-      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-      with:
+     - name: Get yarn cache directory path
+       id: yarn-cache-dir-path
+       run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUT
+     - uses: actions/cache@v3
+       id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+       with:
        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
        restore-keys: |
         ${{ runner.os }}-yarn-   
-    - name: check dirs
-      run: ls
-    - name: sync
-      uses: ./
-      with:
+     - name: check dirs
+       run: ls
+     - name: sync
+       uses: ./
+       with:
         args: --follow-symlinks --delete
                         
-      env:
+       env:
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
