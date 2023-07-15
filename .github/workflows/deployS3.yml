@@ -6,7 +6,7 @@ on:
     - Desarrollo
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
@@ -32,8 +32,14 @@ jobs:
         ${{ runner.os }}-yarn-   
     - name: check dirs
       run: ls
-         
-    - name: sync  
+  
+  deploy:
+    name: deploy to S3
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: sync
       uses: ./
       with:
         args: --follow-symlinks --delete
