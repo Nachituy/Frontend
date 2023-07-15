@@ -4,7 +4,8 @@ FROM node:alpine AS development
 ENV NODE_ENV development
 # Setting up the work directory
 WORKDIR /react-app
-COPY src entrypoint.sh package.json webpack.config.js pnpm-lock.yaml ./
+COPY src src
+COPY entrypoint.sh package.json webpack.config.js pnpm-lock.yaml ./
 
 # Installing dependencies
 
