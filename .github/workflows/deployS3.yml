@@ -34,9 +34,8 @@ jobs:
     
     - name: sync  
       uses: ./
-   
-        #with:
-        #args: --follow-symlinks --delete
+      with:
+        args: --follow-symlinks --delete
                         
       env:
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
