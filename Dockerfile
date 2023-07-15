@@ -13,7 +13,7 @@ RUN yarn add -D webpack-cli && yarn build
 RUN pwd \
 ls
 
-
+FROM python:3.8-alpine
 
 # Declaring env
 #ENV NODE_ENV development
@@ -25,7 +25,7 @@ COPY --from=build /react-app/node_modules /mybucket/node_modules
 # Installing dependencies
 
 ENV AWSCLI_VERSION='1.29.2'
-RUN apk add py3-pip && pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION} 
+RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION} 
 RUN pwd \
 ls
 ADD entrypoint.sh entrypoint.sh
