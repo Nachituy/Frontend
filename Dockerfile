@@ -20,7 +20,7 @@ FROM python:3.8-alpine
 # Setting up the work directory
 
 WORKDIR /react-app
-VOLUME ${{ github.workspace }}/react-app
+#VOLUME ${{ github.workspace }}/react-app
 #COPY --from=build /react-app/dist /mybucket/dist
 #COPY --from=build /react-app/node_modules /mybucket/node_modules
 
@@ -30,9 +30,9 @@ ENV AWSCLI_VERSION='1.29.2'
 RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION} 
 RUN pwd \
 ls
-ADD entrypoint.sh entrypoint.sh
+ADD entrypoint.sh /entrypoint.sh
 RUN ls
 #RUN chmod ugo+x entrypoint.sh
 #RUN ls
-ENTRYPOINT ["entrypoint.sh]
+ENTRYPOINT ["/entrypoint.sh"]
 
