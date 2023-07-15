@@ -32,6 +32,6 @@ ADD entrypoint.sh entrypoint.sh
 RUN ls
 RUN chmod ugo+x entrypoint.sh
 RUN ls
-ENTRYPOINT ["/bin/sh"]
-CMD ["entrypoint.sh"] 
+CMD ["/bin/sh", "entrypoint.sh --delete --follow-symliks"]
+
 
