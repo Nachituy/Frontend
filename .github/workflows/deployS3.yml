@@ -11,12 +11,19 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v3
-    
-     
+    - name: build
+      uses: addnab/docker-run-action@v3
+      with: 
+        image: node:alpine
+        options: -v ${{ github.workspace}}:/react-app
+        run: \
+            yarn build
+            ls
+         
     - name: sync  
       uses: ./
-      #with:
-       # args: --follow-symlinks --delete
+      with:
+        args: --follow-symlinks --delete
                 
       env:
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
