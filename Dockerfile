@@ -9,7 +9,7 @@ WORKDIR /react-app
 COPY . .
 CMD chmod ugo+x entrypoint.sh
 ENV AWSCLI_VERSION='1.29.2'
-CMD apk add py3-pip &&  pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION} &&\
+RUN apk add py3-pip &&  pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION} &&\
 yarn add -D webpack-cli && yarn build
 CMD chmod ugo+x entrypoint.sh
 ENTRYPOINT ["/bin/sh","entrypoint.sh"]
