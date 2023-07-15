@@ -24,6 +24,7 @@ jobs:
       uses: ./
       with:
         args: --follow-symlinks --delete
+        options: -v ${{ github.workspace}}:/react-app
                 
       env:
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
