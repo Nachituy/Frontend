@@ -1,3 +1,10 @@
 *.md
-
+.git*
+Dockerfile
+src
+webpack.config.js
+package.json
+pnpm-lock.yaml
+action.yml
+README
   
