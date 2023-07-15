@@ -9,7 +9,7 @@ WORKDIR /react-app
 COPY src src
 COPY entrypoint.sh package.json webpack.config.js pnpm-lock.yaml ./
 
-RUN yarn build
+RUN yarn add -D webpack-cli && yarn build
 RUN pwd \
 ls
 
