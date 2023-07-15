@@ -19,6 +19,8 @@ FROM python:3.8-alpine
 #ENV NODE_ENV development
 # Setting up the work directory
 
+RUN ls 
+
 
 #COPY --from=build /react-app/dist /mybucket/dist
 #COPY --from=build /react-app/node_modules /mybucket/node_modules
