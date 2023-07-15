@@ -30,8 +30,8 @@ RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
 RUN pwd \
 ls
 ADD entrypoint.sh /entrypoint.sh
-RUN ls
+RUN sh -c " mkdir bucket && cp dist/* bucket/ && cp node* bucket/ "
 RUN chmod ugo+x /entrypoint.sh
-#RUN ls
+RUN ls
 ENTRYPOINT ["/entrypoint.sh"]
 
