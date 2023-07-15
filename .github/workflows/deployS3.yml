@@ -19,9 +19,9 @@ jobs:
         options: -v ${{ github.workspace}}:/react-app
         run: cd /react-app && apk add yarn && yarn add -D webpack-cli && yarn build
         #run: npm run build
-    - name: copy build
-      run: cp -r 'dist' '${{github.workspace}}/dist'
-      shell: sh
+    - name: check dir
+      run: ls 
+      #shell: sh
     #- name: Get yarn cache directory path
     #  id: yarn-cache-dir-path
     #  run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
