@@ -32,7 +32,7 @@ RUN pwd \
 ls
 ADD entrypoint.sh /entrypoint.sh
 RUN ls
-#RUN chmod ugo+x entrypoint.sh
+RUN chmod ugo+x /entrypoint.sh
 #RUN ls
 ENTRYPOINT ["/entrypoint.sh"]
 
