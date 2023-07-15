@@ -16,7 +16,8 @@ jobs:
       with: 
         image: node:alpine
         options: -v ${{ github.workspace}}:/react-app
-        run: \
+        run: \ 
+            yarn install webpack
             yarn build
             ls
          
