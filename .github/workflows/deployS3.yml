@@ -17,8 +17,8 @@ jobs:
         image: node:alpine
         options: -v ${{ github.workspace}}:/react-app
         run: \ 
-            yarn install webpack
-            yarn build
+            yarn install webpack \
+            yarn build \
             ls
          
     - name: sync  
