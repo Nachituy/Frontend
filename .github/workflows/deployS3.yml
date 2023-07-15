@@ -17,8 +17,8 @@ jobs:
       with: 
         image: node:alpine
         options: -v ${{ github.workspace}}:/react-app
-        #run: cd /react-app && apk add yarn && yarn add -D webpack-cli && yarn build
-        run: npm run build
+        run: cd /react-app && apk add yarn && yarn add -D webpack-cli && yarn build
+        #run: npm run build
     - name: copy build
       run: cp 'dist' '${GITHUB_WORKSPACE}/dist'
       shell: sh
