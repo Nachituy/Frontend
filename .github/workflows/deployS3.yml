@@ -22,7 +22,7 @@ jobs:
     - name: Get yarn cache directory path
       id: yarn-cache-dir-path
       run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-    - name: sync
+    - name: cache 
       uses: actions/cache@v3
       id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
       with:
@@ -30,10 +30,9 @@ jobs:
        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
        restore-keys: |
         ${{ runner.os }}-yarn-   
-    
-  
-       uses: ./
-       id: sync
+    - name: sync  
+      uses: ./
+   
         #with:
         #args: --follow-symlinks --delete
                         
