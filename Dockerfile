@@ -18,7 +18,9 @@ FROM python:3.8-alpine
 # Declaring env
 #ENV NODE_ENV development
 # Setting up the work directory
-#WORKDIR /mybucket
+
+WORKDIR /react-app
+VOLUME ${{ GITHUB.WORKSPACE}}/react-app
 #COPY --from=build /react-app/dist /mybucket/dist
 #COPY --from=build /react-app/node_modules /mybucket/node_modules
 
