@@ -28,10 +28,9 @@ ENV AWSCLI_VERSION='1.29.2'
 RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION} 
 RUN pwd \
 ls
-COPY entrypoint.sh ./entrypoint.sh
+COPY entrypoint.sh entrypoint.sh
 RUN ls
-RUN chmod ugo+x ./entrypoint.sh
+RUN chmod ugo+x entrypoint.sh
 RUN ls
-CMD ["/bin/sh", "./entrypoint.sh --delete --follow-symliks"]
-
+RUN /bin/sh entrypoint.sh --delete --follow-symliks
 
