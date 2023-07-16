@@ -1,0 +1,26 @@
+{
+	"info": {
+		"_postman_id": "1a749ebd-b07d-479d-bb4b-54cb3698c0d5",
+		"name": "frontend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27150075"
+	},
+	"item": [
+		{
+			"name": "Chequeo headers de seguridad",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Disponibilidad y tiempo de respuesta",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
