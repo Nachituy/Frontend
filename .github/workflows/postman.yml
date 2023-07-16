@@ -1,7 +1,8 @@
 name: postman-pull-request
 on: [push, pull_request] 
 jobs:
-  build:
+  test:
+    needs: build
     runs-on: ubuntu-latest
     strategy:
       matrix:
