@@ -10,17 +10,90 @@
 			"name": "Chequeo headers de seguridad",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://frontend-obligatorio-2023.s3-website-us-east-1.amazonaws.com/",
+					"protocol": "http",
+					"host": [
+						"frontend-obligatorio-2023",
+						"s3-website-us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Disponibilidad y tiempo de respuesta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"// The response code 200 indiates the API endpoint is up and running normally\r",
+							"pm.test('The the response code is 200.', function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"//Consider the API endpoint not available if the response time is equal to or longer than 1 second\r",
+							"pm.test(\"Response time is less than 1 second.\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://frontend-obligatorio-2023.s3-website-us-east-1.amazonaws.com/",
+					"protocol": "http",
+					"host": [
+						"frontend-obligatorio-2023",
+						"s3-website-us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BUCKETURL",
+			"value": "http://frontend-obligatorio-2023.s3-website-us-east-1.amazonaws.com",
+			"type": "string"
 		}
 	]
 }
