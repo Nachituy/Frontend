@@ -34,6 +34,10 @@ if [ -n "$AWS_S3_ENDPOINT" ]; then
   ENDPOINT_APPEND="--endpoint-url $AWS_S3_ENDPOINT"
 fi
 
+
+
+
+
 # Create a dedicated profile for this action to avoid conflicts
 # with past/future actions.
 # https://github.com/jakejarvis/s3-sync-action/issues/1
@@ -52,10 +56,16 @@ echo "aws_session_token=${AWS_SESSION_TOKEN}" >> ~/.aws/credentials
 # Sync using our dedicated profile and suppress verbose messages.
 # All other flags are optional via the `args:` directive.
 # sh -c "aws s3 sync ${SOURCE_DIR:-.} s3://${AWS_S3_BUCKET}/${DEST_DIR} \
-sh -c "aws s3 sync ${SOURCE_DIR:-.} s3://${AWS_S3_BUCKET}/${DEST_DIR} \
+sh -c "aws s3 sync dist s3://${AWS_S3_BUCKET} \
               --profile s3-sync-action \
               --no-progress \
               ${ENDPOINT_APPEND} $*"
+
+sh -c "aws s3 sync src s3://${AWS_S3_BUCKET}/src \
+              --profile s3-sync-action \
+              --no-progress \
+              ${ENDPOINT_APPEND} $*"
+              
 
 # Clear out credentials after we're done.
 # We need to re-run `aws configure` with bogus input instead of

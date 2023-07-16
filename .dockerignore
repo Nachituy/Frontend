@@ -1,3 +1,6 @@
 *.md
-
+.git*
+Dockerfile
+src
+README
   
